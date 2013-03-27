@@ -111,13 +111,16 @@ if __name__ == "__main__":
 	v.loadTotalXml()	
 	filmlist=v.findByName(filmname)
 	i=0
+	if len(filmlist)==0:
+		print "No this film"
+		sys.exit()
 	for film in filmlist:
 		print i, v.getFilmName(film)
 		i+=1
 	i=input("input the no:")
 	s = v.getFilmList(filmlist[i])
 	if len(s) ==0:
-		print "No this film"
+		print "fail to find the URL of this film"
 	else:
 		for item in v.getFilmUrlList(s):
 			if len(item)>0:
